@@ -30,4 +30,6 @@ Pod is groping of containers , container is embedded in a pod
 pods- runs one or more closely related containers
 services- sets up networking in a kubernetes clusters
 
-![[Pasted image 20260925155256.png|577]]
+![[Pasted image 20260925155256.png|577]]  
+
+Service is used to provide an ip address to a group of pods so that if one pod crashes and a new ip address is created we need not to worry 
