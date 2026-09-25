@@ -19,3 +19,15 @@ Object is something that exists in the kubernetes cluster
 ![[Pasted image 20260925145556.png]]
 Kind in the yaml file specifies the type of object we want
 each api version that we define has a different set of objects in them
+
+![[Pasted image 20260925150115.png]]
+
+Pod is groping of containers , container is embedded in a pod
+![[Pasted image 20260925154720.png|487]]     
+![[Pasted image 20260925154956.png|490]]
+
+
+pods- runs one or more closely related containers
+services- sets up networking in a kubernetes clusters
+
+![[Pasted image 20260925155256.png|577]]
