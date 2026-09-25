@@ -1,0 +1,11 @@
+{
+  "git-vault-sync:sync": [
+    {
+      "modifiers": [
+        "Mod",
+        "Shift"
+      ],
+      "key": "S"
+    }
+  ]
+}
