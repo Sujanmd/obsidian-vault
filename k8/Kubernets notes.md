@@ -33,3 +33,4 @@ services- sets up networking in a kubernetes clusters
 ![[Pasted image 20260925155256.png|577]]  
 
 Service is used to provide an ip address to a group of pods so that if one pod crashes and a new ip address is created we need not to worry 
+unicast multicast, range of ip,192.168
