@@ -2,5 +2,6 @@
   "promptDelete": false,
   "attachmentFolderPath": "Attachments",
   "newLinkFormat": "relative",
-  "useMarkdownLinks": false
+  "useMarkdownLinks": false,
+  "propertiesInDocument": "source"
 }
