@@ -34,7 +34,7 @@ services- sets up networking in a kubernetes clusters
 
 Service is used to provide an ip address to a group of pods so that if one pod crashes and a new ip address is created we need not to worry 
 
--unicast multicast, range of ip,192.168
+-unicast multicast, range of ip,192.168, range
 unicast and multicast is one to one and one to many
 182.156.94.234- Public ip adddr
 10.80.202.5- private ip addr, laptop talks to the router
@@ -72,3 +72,13 @@ Deployment- is a kubernetes object which is used to maintain set of identical po
 ![[Pasted image 20260928144249.png|619]]
 
 Kubectl delete -f <config file> : to delete the file 
+
+to update the name of the deployment or something using the imperative approach, we need to use the following command:
+kubectl set image <object_type>/<object name> <container_name>=<new image to use>
+example-
+kubectl set image deployment/client-deployment client=stephengrider/multi-client:v5
+
+
+
+
+
