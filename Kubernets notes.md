@@ -38,7 +38,7 @@ Service is used to provide an ip address to a group of pods so that if one pod c
 unicast and multicast is one to one and one to many
 182.156.94.234- Public ip adddr
 10.80.202.5- private ip addr, laptop talks to the router
-192.168.49.2- isolated env by minikube, mac can see it but other computers on wifi cannot see it.
+192.168.49.2- isolated env by minikube, mac can see it but other computers on wifi cannot see it. by minikube ip
 
 Nodeport is used to expose a container to the outside world
 The selector spec in one file will act as a reference to the metadata:label:component in the other which is to be refered
@@ -50,4 +50,21 @@ nodePort: used to test the running container in our browser
 
 ![[Pasted image 20260928121938.png|615]]
 
-kubect get services : to get the running services
+kubectl get services : to get the running services, get pod
+
+we dont work with the nodes directly, instead we communicate with the master
+![[Pasted image 20260928130121.png|624]]
+
+imperative and declarative deployments
+imperative means that we explicitly say to do exactly certain steps to arrive at container setup
+declarative means our container setup should look like this, make this happen  
+
+![[Pasted image 20260928133247.png|621]]
+
+only certain part of specifications can be updated in the yaml file or else there will be error
+
+![[Pasted image 20260928142340.png|489]]
+
+Deployment- is a kubernetes object which is used to maintain set of identical pods and ensure that they have the correct config and are in the right number
+
+![[Pasted image 20260928142634.png|615]]
