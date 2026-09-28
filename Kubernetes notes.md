@@ -78,7 +78,3 @@ kubectl set image <object_type>/<object name> <container_name>=<new image to use
 example-
 kubectl set image deployment/client-deployment client=stephengrider/multi-client:v5
 
-
-![[Pasted image 20260928164337.png]]
-![[Attachments/Pasted image 20260928172138.png]]
-
