@@ -68,3 +68,7 @@ only certain part of specifications can be updated in the yaml file or else ther
 Deployment- is a kubernetes object which is used to maintain set of identical pods and ensure that they have the correct config and are in the right number
 
 ![[Pasted image 20260928142634.png|615]]
+
+![[Pasted image 20260928144249.png|619]]
+
+Kubectl delete -f <config file> : to delete the file 
