@@ -47,3 +47,7 @@ selector and metadata should be the same but component:web is like a key value p
 -port : is used by any other pod that needs to connect to the multiclient application or the pod that is running
 targetPort: send incoming traffic to this port
 nodePort: used to test the running container in our browser
+
+![[Pasted image 20260928121938.png|615]]
+
+kubect get services : to get the running services
