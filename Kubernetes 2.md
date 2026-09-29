@@ -43,3 +43,36 @@ loadbalancer is on n/w transport layer,tcp udp
 ingress is in application layer, http https 
 
 in k8s a controller is any object that constantly works inorder to make some desired state a reality in our cluster
+
+![[Attachments/Pasted image 20260929152553.png|611]]
+
+Deploying the kubernetes setup-
+
+![[Attachments/Pasted image 20260929172109.png|612]]
+
+Helm is the official package manager for kubernetes, like pip,npm and all
+3 components
+helm charts-
+bundle of yaml files to create a kubernetes application
+config values-
+dynamic config to customise deployment of helm chart in values.yaml file
+release-
+running instance of chart combined with specific config
+artifact hub
+
+![[Attachments/Pasted image 20260929180607.png|558]]
+
+![[Attachments/Pasted image 20260929180645.png|700]]
+
+Basic structure of a helm chart-
+
+![[Attachments/Pasted image 20260929180735.png|389]]
+
+chart.yaml contains the metadata about the chart name,desc,version
+templates has helm templated manifest file and notes.txt file
+value.yaml files have the config for the chart values.yaml is the default value for the chart.
+
+![[Attachments/Pasted image 20260929181919.png|638]]
+
+helm create app_name is used to create a basic structure of the chart
+
