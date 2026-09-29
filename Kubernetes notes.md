@@ -71,10 +71,10 @@ Deployment- is a kubernetes object which is used to maintain set of identical po
 
 ![[Pasted image 20260928144249.png|619]]
 
-Kubectl delete -f <config file> : to delete the file 
+Kubectl delete -f config file : to delete the file 
 
 to update the name of the deployment or something using the imperative approach, we need to use the following command:
-kubectl set image <object_type>/<object name> <container_name>=<new image to use>
+kubectl set image object_type/object name container_name=new image to use
 example-
 kubectl set image deployment/client-deployment client=stephengrider/multi-client:v5
 
