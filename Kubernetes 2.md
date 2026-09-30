@@ -76,3 +76,20 @@ value.yaml files have the config for the chart values.yaml is the default value 
 
 helm create app_name is used to create a basic structure of the chart
 
+![[Attachments/Pasted image 20260930181304.png|700]]
+
+deployment.yaml- it tells which image to download, how many copies and other stuff
+service.yaml and httproute.yaml- service us used to give internal static ip so apps in cluster could connect to it and httproute is used for path routing, header matching and traffic splitting
+ingress- is same as http but it is older but httproute is new
+hpa(horizontal pod autoscaler)- automatically scale if cpu goes above 80% or something
+serviceaccount.yaml- provide an internal security identity to the running container itself
+helpers.tpl- it has reusble code snippets
+notes.txt- it is displayed once helm install is run
+tests folder has test-connection.yaml which sends a network ping to your app's web port
+
+helm upgrade ybsleep-release ./ybsleep --set replicaCount=0
+helm upgrade ybsleep-release ./ybsleep --set replicaCount=1
+these are used to pause and play the app without losing the required config of files
+
+Error: INSTALLATION FAILED: template: ybsleep/templates/deployment.yaml:31:16: executing "ybsleep/templates/deployment.yaml" at <.Values.sleepTime>: render error in "ybsleep/templates/deployment.yaml": evaluation of nil value
+this error will happen when we remove the default time in values.yaml
