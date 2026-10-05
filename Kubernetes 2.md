@@ -92,4 +92,4 @@ helm upgrade ybsleep-release ./ybsleep --set replicaCount=1
 these are used to pause and play the app without losing the required config of files
 
 Error: INSTALLATION FAILED: template: ybsleep/templates/deployment.yaml:31:16: executing "ybsleep/templates/deployment.yaml" at <.Values.sleepTime>: render error in "ybsleep/templates/deployment.yaml": evaluation of nil value
-this error will happen when we remove the default time in values.yaml
+this error will happen when we remove the default time in values.yaml 
