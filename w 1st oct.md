@@ -66,9 +66,20 @@ kubectl logs -n prp-channels -l app.kubernetes.io/instance=ch-798 -c assembler -
 kubectl logs -n prp-channels -l app.kubernetes.io/instance=ch-798 -c tardis -f
 
 # Play stream remotely
-ssh amagi@10.0.9.68 "ffmpeg -hide_banner -loglevel error -i 'srt://127.0.0.1:8891?mode=caller&transtype=live&latency=500000' -c copy -f mpegts pipe:1" | ffplay -fflags nobuffer -flags low_delay -f mpegts -i -
+ssh amagi@10.0.9.68 "ffmpeg -hide_banner -loglevel error -i 'srt://127.0.0.1:8890?mode=caller&transtype=live&latency=500000' -c copy -f mpegts pipe:1" | ffplay -fflags nobuffer -flags low_delay -f mpegts -i -
 ```
 
 
-whats k3s and how is it allocated
-how do we see the output of tardis and verify that it is not the old one
+
+ssh amagi@10.0.9.68 "sudo ip netns exec prp-channels ffmpeg -hide_banner -loglevel error -i 'srt://127.0.0.1:8891?mode=caller&transtype=live&latency=500000' -c copy -f mpegts pipe:1" | ffplay -fflags nobuffer -flags low_delay -f mpegts -i -
+
+
+helm upgrade ch-798 . \
+  --namespace prp-channels \
+  -f values-prod.yaml \
+  -f helm-channel-clean.yaml \
+  -f values-debug.yaml \
+  --set tamsToken.existingSecret=ch-798-tams-token \
+  --set slate.existingConfigMap=prp-assembler-slate \
+  --set image.pullPolicy=IfNotPresent \
+  --set exporter.podMonitor.enabled=false
