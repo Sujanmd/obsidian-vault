@@ -1,5 +1,5 @@
 programme- a single broadcast service or channel.
-The MPEG-2 Systems Specification1 describes how MPEG-compressed video and audio data streams may be multiplexed together to form a single data stream.
+The MPEG-2 Systems Specification describes how MPEG-compressed video and audio data streams may be multiplexed together to form a single data stream.
 
 ![[Attachments/Pasted image 20261013114749.png]] 
 There is no form of error protection within the multiplex.
@@ -13,7 +13,7 @@ transport stream on the other hand is used in error prone broadcast environment.
 
 **Presentation units and access units**
 
-Each picture* in its uncompressed form is termed a presentation unit.
+Each picture in its uncompressed form is termed a presentation unit.
 The coder compresses each presentation unit to give a coded picture which is termed an access unit.
 all access unit are not of the same size, it depends on whether they become i,p or b frames along with how they are coded.
 The succession of access units makes the *video elementary stream*.
@@ -69,3 +69,34 @@ it has a fixed pid 1.
 cat points to encrypted keys for scrambled streams.
 ![[Attachments/Pasted image 20261013151535.png|669]] 
 
+**video coder and decoder buffers**
+
+we saw that the access units coming from encoding a video are variable and depends whether they are ipb frame, so it generates variable bits per second and to smoothen it it is done by fifo memory called as coder buffer. 
+in coder buffer, the read pointer is running at a constant angular velocity whereas the write pointer moves without constant but acc to the head of the incoming access unit. the reverse happens in the case of a decoder. 
+The delay between an access unit being written into the coder buffer and being removed from the decoder buffer is called *buffer delay*
+
+Timestamps and clock references are defined so that the decoder gets to know when an access unit should be removed from the decoder buffer.
+
+**Timestamp and clock references**
+
+the multiplexer uses the program clock to get the current time and sets the time stamp using which the decoder decodes the access units
+The access units are tagged with time stamps
+
+![[Attachments/Pasted image 20261013161620.png]] 
+The time at the time stamp cannot be the current time instead it is the time that access unit will be decoded at the decoder.
+
+The clocks used at the multiplexer and decoder do not measure time in hours and minutes but in units of 27 MHz expressed as a 42-bit binary number and there is no requirement that the clocks should be related to any national time standard.
+In a programme stream which can carry only a single programme, the clock at the multiplexer is called the **System Clock**.
+System clock references(SCR) are sent to the decoder so that the clock in the decoder is in synch with the encoder clock.
+
+in Transport stream, there are multiple programmes and each programme have their own independent clock called the **programme clock** which need not be synch with the clocks of other programmes.
+similarly here PCR are sent to the decoder.
+
+**Time stamp**
+33-bit binary values expressed in units of 90 kHz.
+there are two types- Presentation time stamp(PTS) and Decoding time stamp (DTS)
+pts says the time at which the access unit should be removed from the decoder buffer and presented to the viewer
+dts says the time at which an access unit should be removed from the decoder buffer and decoded but not presented to the viewer
+pts is always greater than dts as picture is later showed in the viewer.
+
+MPEG-2 is sometimes referred to as a ‘toolkit’ that gives a very full specification of video and audio compression algorithms and an extensive multiplex syntax.
