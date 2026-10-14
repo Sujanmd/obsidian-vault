@@ -46,7 +46,7 @@ I-frame
 i frame or a key frame or intra-frame consists only of macroblocks that use intra-prediction , it can only use "spatial redundancies" 
 
 P-frame
-p-frame means predicted frame and allows macoblocks to be compressed using temporal prediction in addition to spatial prediction. for motion estimation, they use frame that have been previously encoded
+p-frame means predicted frame and allows macroblocks to be compressed using temporal prediction in addition to spatial prediction. for motion estimation, they use frame that have been previously encoded
 
 ![[Attachments/Pasted image 20261012170010.png]]
 
