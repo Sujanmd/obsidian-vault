@@ -1,5 +1,13 @@
 Deploy openTams and understand the readme and what it does
 
+TO deploy opentams, these are the steps we followed,
+1. request devopsbuddy for the commandline access and the integration cluster access using portkey
+2. change the required teraform.vars file 
+3. first export the aws secret from the user to the terminal
+4. then do the assume role command and it will give the session keys and the tokens 
+5. paste them again by exporting them
+6. finally do terraform apply to get the deployment.
+
 terraform is an industry standard infrastructure as code(iac) used to automate creation, modifiy and manage cloud .
 instead of opening a browser and manually creating a bucket in aws or somet
 hing like that,we write codes and explicitly say the desired state
@@ -9,7 +17,7 @@ size 500
 multi aZ FALSE
 changed all the config values inside the terraform file and then authenticated aws using cli
 
-**
+
 
 ## TAMS
 

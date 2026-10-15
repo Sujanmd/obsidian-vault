@@ -54,3 +54,11 @@ $$\text{Total Colors per Pixel} = 2^{(\text{Bits per Channel} \times 3)}$$
 `4:4:4` (Full Color), `4:2:2` (Broadcast), `4:2:0` (Consumer Streaming).
 
 **pixel format** is simply a **data contract or layout blueprint** that tells a computer CPU or GPU how to read raw binary bytes from memory and turn them into visual pixels on a screen.
+
+**How pixel formats are stored in ram or vram**
+
+1. packed format(interleaved)-
+   In a packed format, **all color components for a single pixel sit directly adjacent to one another** in memory. The computer reads Pixel 1 completely, then Pixel 2, then Pixel 3. In this it is easy to edit a required component by using it like array indexing.
+2. planar formates(seperated planes)-
+   Instead of mixing components together, planar formats **group all components of the same type into separate, contiguous blocks (planes)** in memory. This is primarily used for YUV/YCbCr video formats to make chroma subsampling efficient.
+
