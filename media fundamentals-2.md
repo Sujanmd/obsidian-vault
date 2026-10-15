@@ -73,4 +73,7 @@ Maps input RGB values to target output colors to adjust white balance, exposure,
 chroma keying:
 Filters out a specific color range (typically green or blue) to generate an alpha transparency mask for visual background replacement.
 De-Banding / Anti-Aliasing: Smoothes harsh color stepping artifacts caused by heavy video compression or low color bit-depths.
-![[Attachments/Pasted image 20261015182938.png]]
+![[Attachments/Pasted image 20261015182938.png]] 
+$$\text{Bitrate (bits/sec)} = \text{Sampling Rate (Hz)} \times \text{Bits per Sample} \times \text{Channels}$$
+
+$$\text{Data Rate (Bytes/sec)} = \frac{\text{Bitrate (bits/sec)}}{8} = \text{Sampling Rate (Hz)} \times \text{Bytes per Sample} \times \text{Channels}$$
