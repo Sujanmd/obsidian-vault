@@ -77,3 +77,18 @@ De-Banding / Anti-Aliasing: Smoothes harsh color stepping artifacts caused by he
 $$\text{Bitrate (bits/sec)} = \text{Sampling Rate (Hz)} \times \text{Bits per Sample} \times \text{Channels}$$
 
 $$\text{Data Rate (Bytes/sec)} = \frac{\text{Bitrate (bits/sec)}}{8} = \text{Sampling Rate (Hz)} \times \text{Bytes per Sample} \times \text{Channels}$$
+
+pulse code modulation(pcm)- 
+has 3 steps sampling, quantization, binary encoding
+
+**s24le** (Signed 24-bit PCM, Little-Endian)-
+s-signed integer which can represent both +ve and -ve audio waveform amplitudes using two's complement.
+24- bits(3bytes) per audio sample
+le- little endian byte ordering: lsb is stored first in memory access order
+uses- x64,x84 desktop processor(intel, amd)
+
+f32be
+f-floating point 1 sign bit, 8 exponent bits and 23 mantissa bits, values from -1 to +1
+32- 4 bytes per audio sample
+be- big endian : msb stored in first memory address 
+uses- old network transmission protocols, historical motorola architecture 

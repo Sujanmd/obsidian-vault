@@ -50,3 +50,5 @@ Master username - opentams
 
 **
 
+curl https://opentams-aws-use1-jammer-integration.integration.amaginow.tv/tams/v1/flows -H "Authorization: Bearer dev"
+- This was done when browser needed bearer token.
