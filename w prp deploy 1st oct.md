@@ -76,10 +76,18 @@ ssh amagi@10.0.9.68 "sudo ip netns exec prp-channels ffmpeg -hide_banner -loglev
 
 helm upgrade ch-798 . \
   --namespace prp-channels \
-  -f values-prod.yaml \
   -f helm-channel-clean.yaml \
   -f values-debug.yaml \
   --set tamsToken.existingSecret=ch-798-tams-token \
   --set slate.existingConfigMap=prp-assembler-slate \
-  --set image.pullPolicy=IfNotPresent \
-  --set exporter.podMonitor.enabled=false
+  --set image.pullPolicy=IfNotPresent 
+
+account_id: "amg00861"               # X-Account-Id mesh header
+    feed_code: "amg00861c33"                # feed path segment + stream-key derivations
+    headend_code: "amg00861c33_001" 
+
+
+kubectl -n prp-channels update configmap prp-assembler-slate \
+  --from-literal=feed_code="amg00861c33" \
+  --from-literal=headend_code="amg00861c33_001" \
+  --from-literal=account_id="amg00861"
