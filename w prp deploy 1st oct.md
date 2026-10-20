@@ -9,7 +9,7 @@ this is used to install k3s in  a server
 
 helm install ch-798 . \
   --namespace prp-channels \
-  -f values-debug.yaml \
+  -f values.yaml \
   -f helm-channel-clean.yaml \
   --set tamsToken.existingSecret=ch-798-tams-token \
   --set slate.existingConfigMap=prp-assembler-slate \
