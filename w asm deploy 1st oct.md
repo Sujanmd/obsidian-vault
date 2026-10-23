@@ -7,29 +7,23 @@ curl -sfL https://get.k3s.io | sh -
 this is used to install k3s in  a server
 
 
-helm install ch-798 . \
-  --namespace prp-channels \
-  -f values.yaml \
-  -f helm-channel-clean.yaml \
-  --set tamsToken.existingSecret=ch-798-tams-token \
-  --set slate.existingConfigMap=prp-assembler-slate \
-  --set image.pullPolicy=IfNotPresent \
-  --set exporter.enabled=false
+# Study the whole thing first then start!
 
 
 ### 1. Initialize Namespace & Configurations
 
-Bash
 
 ```
 kubectl create namespace prp-channels
-kubectl apply -f tams-token-secret.yaml
-kubectl apply -f assembler-slate-cm.yaml
+kubectl create secret generic ch-798-tams-token 
+--namespace prp-channels --from-literal=token="bearer" secret/ch-798-tams-token created
+
+kubectl create configmap prp-assembler-slate --namespace prp-channels --from-file=slate.ts=slate.ts
+
 ```
 
-### 2. Import & Tag Container Images
+### 2. Import & Tag Container Images (can do docker save and load)
 
-Bash
 
 ```
 sudo k3s ctr images import prp-assembler-v0.9-debug.tar.gz
@@ -38,23 +32,26 @@ docker save 109667701036.dkr.ecr.us-east-1.amazonaws.com/cp/playout/tardis:tar_1
 sudo k3s crictl images | grep -E "prp-assembler|tardis"
 ```
 
-### 3. Deploy Helm Chart
+**while we change the values of the tams url and fcs url, helm-channel-clean.yaml will not be there initially, we need to create it or we can change the section of channel in values.yaml and then update it there, prefer the second one itself.**
+
+## 3.  load the image from local
+REMEMBER- if the images is present in docker images then it is not compulsary that it will be in k3s, it should be loaded! do this using -
+`docker save <image:tag> | sudo k3s ctr images import -`
+### 4. Deploy Helm Chart
 
 Bash
 
 ```
 helm install ch-798 . \
   --namespace prp-channels \
-  -f values-prod.yaml \
-  -f helm-channel-clean.yaml \
+  -f values.yaml \
   -f values-debug.yaml \
   --set tamsToken.existingSecret=ch-798-tams-token \
   --set slate.existingConfigMap=prp-assembler-slate \
-  --set image.pullPolicy=IfNotPresent \
-  --set podMonitor.enabled=false \
-  --set exporter.podMonitor.enabled=false
+  --set image.pullPolicy=Never 
 ```
-
+image pull policy is never if it has to use the image that is present in local, this time we removed the line of setting the secret, as we have hardcoded the tams token as it is in dev mode.
+This only runs the assembler, we need to do tardis enabled=true and then give the repo of the tardis image that is to be run
 ### 4. Verify & Play Output Stream
 
 Bash
@@ -91,3 +88,15 @@ kubectl -n prp-channels update configmap prp-assembler-slate \
   --from-literal=feed_code="amg00861c33" \
   --from-literal=headend_code="amg00861c33_001" \
   --from-literal=account_id="amg00861"
+
+does the helm-channel-clean need to be written manually each time
+
+acc id- amg00861
+feed code- amg00861c33
+headend code- 401
+
+helm install ch-798 . \
+  --namespace prp-channels \
+  -f values.yaml \
+  -f values-debug.yaml \
+  --set slate.existingConfigMap=ch-798-slate 
