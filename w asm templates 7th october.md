@@ -30,4 +30,12 @@ configmap-exporter.yaml is used to specify how system process metrics are gather
 # assembler muxer ui
 
 ![[Attachments/Pasted image 20261023152016.png|700]] 
-![[Attachments/Pasted image 20261023152054.png]]
+![[Attachments/Pasted image 20261023152054.png]] 
+The decode buffer lead is used to show the time by which audio or video data arrives before it is decoded and displayed on the screen , it is useful as it can reduce the jitter or delay that will be there as it can be absorbed
+![[Attachments/Pasted image 20261023154029.png]]
+This graph displays the **Modeled Eb (Elementary Buffer) Occupancy** for your MPEG-TS stream. It simulates how full the decoder's incoming buffer memory is over time for the video and audio tracks
+
+![[Attachments/Pasted image 20261023154510.png]] 
+This is same as the previous one but there the decoded elementary stream will be waiting in the buffer, but here the transport packets land before being filtered
+
+![[Attachments/Pasted image 20261023160058.png]] 
