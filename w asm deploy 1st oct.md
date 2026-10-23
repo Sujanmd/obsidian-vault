@@ -68,8 +68,6 @@ ssh amagi@10.0.9.68 "ffmpeg -hide_banner -loglevel error -i 'srt://127.0.0.1:889
 
 
 
-ssh amagi@10.0.9.68 "sudo ip netns exec prp-channels ffmpeg -hide_banner -loglevel error -i 'srt://127.0.0.1:8891?mode=caller&transtype=live&latency=500000' -c copy -f mpegts pipe:1" | ffplay -fflags nobuffer -flags low_delay -f mpegts -i -
-
 
 helm upgrade ch-798 . \
   --namespace prp-channels \
@@ -84,12 +82,6 @@ account_id: "amg00861"               # X-Account-Id mesh header
     headend_code: "amg00861c33_001" 
 
 
-kubectl -n prp-channels update configmap prp-assembler-slate \
-  --from-literal=feed_code="amg00861c33" \
-  --from-literal=headend_code="amg00861c33_001" \
-  --from-literal=account_id="amg00861"
-
-does the helm-channel-clean need to be written manually each time
 
 acc id- amg00861
 feed code- amg00861c33
@@ -100,3 +92,10 @@ helm install ch-798 . \
   -f values.yaml \
   -f values-debug.yaml \
   --set slate.existingConfigMap=ch-798-slate 
+
+
+`ffmpeg -hide_banner -loglevel error -i 'srt://127.0.0.1:8890?mode=caller&transtype=live&latency=500000' -c copy -f mpegts pipe:1 | ffplay -fflags nobuffer -flags low_delay -f mpegts -i -`
+
+
+ssh -o ExitOnForwardFailure=yes -L 127.0.0.1:8092:127.0.0.1:8092 amagi@10.0.9.68 \
+  'kubectl -n prp-channels port-forward --address 127.0.0.1 deploy/ch-798-6d755cffbc-sr7qg 8092:8092'

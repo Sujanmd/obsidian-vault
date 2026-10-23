@@ -27,3 +27,7 @@ configmaps.yaml is used as a key value pair inorder to remove the environment sp
 
 configmap-exporter.yaml is used to specify how system process metrics are gathered
 
+# assembler muxer ui
+
+![[Attachments/Pasted image 20261023152016.png|700]] 
+![[Attachments/Pasted image 20261023152054.png]]

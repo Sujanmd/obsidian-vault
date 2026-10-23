@@ -93,6 +93,9 @@ f-floating point 1 sign bit, 8 exponent bits and 23 mantissa bits, values from -
 be- big endian : msb stored in first memory address 
 uses- old network transmission protocols, historical motorola architecture 
 
+**scte is like the ad marker we see in youtube where ads are inserted**
+
+
 # Applications
 
 Different frame rates are used to give the stylized blur effect or the slow motion and stuttered video effect 
