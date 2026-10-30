@@ -38,4 +38,17 @@ This graph displays the **Modeled Eb (Elementary Buffer) Occupancy** for your MP
 ![[Attachments/Pasted image 20261023154510.png]] 
 This is same as the previous one but there the decoded elementary stream will be waiting in the buffer, but here the transport packets land before being filtered
 
-![[Attachments/Pasted image 20261023160058.png]] 
+![[Attachments/Pasted image 20261023160058.png]] It compares how fast data packets are expected/scheduled to be transmitted (**pace**, shown as solid lines) against how they are actually arriving on the network (**arrival estimate**, shown as dashed lines)
+
+![[Attachments/Pasted image 20261026140143.png]]
+
+This dashboard panel titled "Scheduler gates & pacing debt" shows why a PID did not get a transmission slot, and how much pacing debt it carries.   In a Constant Bitrate (CBR) MPEG-TS multiplexer, transmission slots are allocated packet-by-packet (188 bytes per slot). When multiple elementary streams (video, audio, metadata) compete for the same slot, the scheduler must decide which stream wins the slot and which streams are held back. 
+
+![[Attachments/Pasted image 20261026140343.png]] 
+![[Attachments/Pasted image 20261026140431.png]] 
+
+![[Attachments/Pasted image 20261026140538.png]]
+It measures how long video packets spend inside the multiplexer pipeline before being transmitted onto the wire
+![[Attachments/Pasted image 20261026140558.png]]
+
+![[Attachments/Pasted image 20261026140618.png]]
