@@ -27,4 +27,7 @@
 - In CUE, the **`-c`** (or **`--concrete`**) flag tells commands like `cue eval` or `cue vet` to verify that **every value is completely concrete** (has a specific, final value) and that no unresolved types or open constraints remain.
 - ![[Attachments/Pasted image 20261101165852.png|579]] 
 - CUE’s core operations are defined so that the order in which configurations are combined is unimportant.  We say that **order is irrelevant** in CUE.
-- instead of using nested fields like json, that is brackets inside brackets, cue uses 
+- instead of using nested fields like json, that is brackets inside brackets, cue uses `fruit: grape: weight: 2` directly
+- ![[Attachments/Pasted image 20261101170820.png|351]] 
+- we can do anything like we do in json or we do in clue, both are valid and works
+- 
