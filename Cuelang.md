@@ -61,4 +61,19 @@
 - =~ is the cue's regex match operator. 
 - ![[Attachments/Pasted image 20261102150151.png|417]] 
 - here the value of the nesting is same as other langs, it matches the one values in the same scope or in the order towards outer most declaration.
-- 
+- we can use the values of one struct in the other or outside with the use of dot notations like X.name or by using index expressions like X["name"].
+- aliasing is nothing but a placeholder defined with = sign, it is used to refer to an identifier outside the current scope because inside the current scope, there is another whose value will be overrided.
+- `"Hello, \(#who)!" #who: "world"` is used to access a definition or to emit the value of the expression.
+- if a concrete value is given to a variable before the reference operation, then it is valid else the expression will be given as the output.
+- one struct refering to other and the other refering back doesnt create an infinite loop, instead it is resolved by the unifying it.
+- hidden fields starts with underscore(_ ).  Even hidden definitions are not exported to the output but stay hidden.
+- Even inside string and bytes we can access other variable in the same way.
+- filed:value is the standard format, where there can be dynamic fields inside a bracket like (a+b).
+- list comprehension is like python itself, computation of square or filtering can be done inside the array/list itself.
+- The operators =~ and !~ check values against regular expressions.
+- NULL Coalescing is a technique used to prevent the value not found or not present error by specifying what to have in that place before itself so that the error does not occur, this can be done by using "* " . `pet0: *#pets[0] | "Pet not found"` 
+- **package** when we do package config in the top of the file, cue creates a namespace and puts all the configs inside it so we dont need to give the filename while executing the files.
+- similarly import is used and the file need not be the part of the package to use import.
+- ![[Attachments/Pasted image 20261102172037.png]] 
+- ![[Attachments/Pasted image 20261102172113.png]]
+
