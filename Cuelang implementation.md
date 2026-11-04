@@ -6,3 +6,5 @@
 in amagictl the cue files are evaluated in the opp order that we are doing, we are doing bottom to up and there it is done top to bottom. 
 so cue eval works but cue export does not work because to export interpolation requires a value and that value to the imported package cannot be provided in a bottom up approach like a yaml file, but the higher file will have access to the lower one. now when we are doing we cannot export, instead we need to evaluate the field thats it! but if we need to i just got a theory that it sends the library that imported file will be validated against the cue file before it is evaluated.
 
+
+
