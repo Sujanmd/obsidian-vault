@@ -1,1 +1,4 @@
-  - ![[Attachments/Pasted image 20261105123327.png]]
+  - ![[Attachments/Pasted image 20261105123820.png]] 
+  - package main is used to make runnable file otherwise it will not be executable, as of now understanding.
+  - ![[Attachments/Pasted image 20261105154212.png]] 
+  - fmt is standard default library to format 
