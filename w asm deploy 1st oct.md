@@ -18,7 +18,7 @@ kubectl create namespace prp-channels
 kubectl create secret generic ch-798-tams-token 
 --namespace prp-channels --from-literal=token="bearer" secret/ch-798-tams-token created
 
-kubectl create configmap prp-assembler-slate --namespace prp-channels --from-file=slate.ts=slate.ts
+kubectl create configmap prp-assembler-slate --namespace asm-slate --from-file=slate.ts=slate.ts
 
 ```
 
@@ -99,3 +99,23 @@ helm install ch-798 . \
 
 ssh -o ExitOnForwardFailure=yes -L 127.0.0.1:8092:127.0.0.1:8092 amagi@10.0.9.68 \
   'kubectl -n prp-channels port-forward --address 127.0.0.1 deploy/ch-798-6d755cffbc-sr7qg 8092:8092'
+
+![[Attachments/Pasted image 20261116192908.png]] 
+change playlist
+prp102 channel name
+404
+
+
+![[Attachments/Pasted image 20261117170408.png]] 
+
+![[Attachments/Pasted image 20261117172038.png]] 
+![[Attachments/Pasted image 20261117172355.png]] 
+![[Attachments/Pasted image 20261117192000.png]] 
+![[Attachments/Pasted image 20261118095915.png]] 
+![[Attachments/Pasted image 20261118100153.png]] 
+
+![[Attachments/Pasted image 20261118162828.png]]  
+
+
+add smaller rendered asset
+add slate of 10 mins
